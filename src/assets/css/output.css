@@ -6,8 +6,11 @@
     'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-    --color-emerald-800: oklch(0.432 0.095 166.913);
+    --color-cyan-950: oklch(0.302 0.056 229.695);
+    --color-violet-300: oklch(0.811 0.111 293.571);
     --color-rose-200: oklch(0.892 0.058 10.001);
+    --color-gray-700: oklch(0.373 0.034 259.733);
+    --spacing: 0.25rem;
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
     --font-weight-bold: 700;
@@ -158,8 +161,17 @@
   }
 }
 @layer utilities {
-  .bg-emerald-800 {
-    background-color: var(--color-emerald-800);
+  .hidden {
+    display: none;
+  }
+  .h-5 {
+    height: calc(var(--spacing) * 5);
+  }
+  .w-5 {
+    width: calc(var(--spacing) * 5);
+  }
+  .bg-violet-300 {
+    background-color: var(--color-violet-300);
   }
   .text-3xl {
     font-size: var(--text-3xl);
@@ -169,11 +181,21 @@
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
   }
-  .text-rose-200 {
-    color: var(--color-rose-200);
+  .text-gray-700 {
+    color: var(--color-gray-700);
   }
   .underline {
     text-decoration-line: underline;
+  }
+  .dark\:bg-cyan-950 {
+    &:where(.dark, .dark *) {
+      background-color: var(--color-cyan-950);
+    }
+  }
+  .dark\:text-rose-200 {
+    &:where(.dark, .dark *) {
+      color: var(--color-rose-200);
+    }
   }
 }
 @property --tw-font-weight {
