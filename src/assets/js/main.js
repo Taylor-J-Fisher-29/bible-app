@@ -40,12 +40,15 @@
   });
 
 
-  function verseLookup() {
-    var verse = document.getElementById("search").value;
-    var url = "/api?verse=" + verse;
+  async function verseLookup() {
+    var verse = document.getElementById("search").value; 
+    var heading = "true";
+    var extras = "true";
+    var numbers = "true";
+    var url = "/api?verse=" + verse + "&heading=" + heading + "&extras=" + extras + "&numbers=" + numbers;
     fetch(url)
-    .then(data => {
-        console.log(data);
+      .then(response => response.text())
+      .then(data => {
         document.getElementById("verse").innerHTML = data;
     });
   }

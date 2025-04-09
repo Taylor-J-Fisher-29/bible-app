@@ -4,7 +4,7 @@ import (
         "encoding/json"
         "fmt"
         "io"
-        "log"
+        //"log"
         "net/http"
         "net/url"
         "os"
@@ -62,7 +62,7 @@ func ApiRequestHandler(w http.ResponseWriter, r *http.Request) {
 
         urlWithParams := baseURL + "?" + params.Encode()
 
-        log.Println(urlWithParams)
+        //log.Println(urlWithParams)
         req, err := http.NewRequest("GET", urlWithParams, nil)
         if err != nil {
                 fmt.Println("Error creating request:", err)
@@ -93,7 +93,7 @@ func ApiRequestHandler(w http.ResponseWriter, r *http.Request) {
                         http.Error(w, "Error writing to response", http.StatusInternalServerError)
                         return
                 }
-                log.Println(str)
+                //log.Println(str)
         }
         w.Write([]byte("</body></html>"))
 
