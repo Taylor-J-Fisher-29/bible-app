@@ -42,10 +42,10 @@
 
   async function verseLookup() {
     var verse = document.getElementById("search").value; 
-    var heading = "true";
+    var headings = "true";
     var extras = "true";
     var numbers = "true";
-    var url = "/api?verse=" + verse + "&heading=" + heading + "&extras=" + extras + "&numbers=" + numbers;
+    var url = "/api?verse=" + verse + "&headings=" + headings + "&extras=" + extras + "&numbers=" + numbers;
     fetch(url)
       .then(response => response.text())
       .then(data => {
