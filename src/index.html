@@ -9,7 +9,7 @@
 </head>
 <body class="bg-violet-300 text-gray-700 dark:bg-cyan-950 dark:text-rose-200 justify-center">
     <nav class="dark:border-cyan-900 border-gray-700 border-3
-    flex justify-between items-center dark:text-stone-200">
+    flex justify-between items-center dark:text-cyan-200">
     <div class="p-2">
 <input class="dark:bg-cyan-800 bg-violet-400 border-2 dark:border-rose-200 border-gray-700 px-2 py-1" 
 type="text" id="search" name="search" placeholder="John 3:16-21" />
@@ -25,12 +25,30 @@ type="text" id="search" name="search" placeholder="John 3:16-21" />
       <h1 class="text-3xl font-bold underline">
         Hello my Beautiful Class!
       </h1>
-      <input type="checkbox" id="headings" name="headings" checked>
-      <label for="headings">Headings</label><br>
-      <input type="checkbox" id="extras" name="extras" checked> 
-      <label for="extras">Extras</label><br>
-      <input type="checkbox" id="numbers" name="numbers" checked>
-      <label for="numbers">Numbers</label><br>
+      <div class="flex items-center gap-x-3 pb-1">
+        <label for="headings" class="relative inline-block w-11 h-6 cursor-pointer">
+          <input type="checkbox" id="headings" class="peer sr-only" checked/>
+          <span class="absolute inset-0 bg-violet-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-violet-500 dark:bg-cyan-700 dark:peer-checked:bg-cyan-600 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
+          <span class="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-violet-100 rounded-full shadow-xs transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-cyan-500 dark:peer-checked:bg-cyan-100"></span>
+        </label>
+        <label for="headings">Headings</label>
+      </div>
+      <div class="flex items-center gap-x-3 pb-1">
+        <label for="numbers" class="relative inline-block w-11 h-6 cursor-pointer">
+          <input type="checkbox" id="numbers" class="peer sr-only" checked/>
+          <span class="absolute inset-0 bg-violet-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-violet-500 dark:bg-cyan-700 dark:peer-checked:bg-cyan-600 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
+          <span class="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-violet-100 rounded-full shadow-xs transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-cyan-500 dark:peer-checked:bg-cyan-100"></span>
+        </label>
+        <label for="numbers">Numbers</label>
+      </div>
+      <div class="flex items-center gap-x-3 pb-1">
+        <label for="extras" class="relative inline-block w-11 h-6 cursor-pointer">
+          <input type="checkbox" id="extras" class="peer sr-only" checked/>
+          <span class="absolute inset-0 bg-violet-200 rounded-full transition-colors duration-200 ease-in-out peer-checked:bg-violet-500 dark:bg-cyan-700 dark:peer-checked:bg-cyan-600 peer-disabled:opacity-50 peer-disabled:pointer-events-none"></span>
+          <span class="absolute top-1/2 start-0.5 -translate-y-1/2 size-5 bg-violet-100 rounded-full shadow-xs transition-transform duration-200 ease-in-out peer-checked:translate-x-full dark:bg-cyan-500 dark:peer-checked:bg-cyan-100"></span>
+        </label>
+        <label for="extras">Extras</label>
+      </div>
       <div id="verse"></div>
     </main>
 

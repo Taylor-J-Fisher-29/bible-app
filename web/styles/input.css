@@ -25,3 +25,15 @@ h3 {
 .footnotes h3 {
 	@apply underline pt-2;
 }
+
+.woc {
+	@apply text-red-800 dark:text-red-600;
+}
+
+.chapter-num, .verse-num {
+  @apply text-gray-700 dark:text-rose-200;
+}
+
+.footnote {
+	@apply text-gray-800 dark:text-rose-200 text-sm px-1;
+}
