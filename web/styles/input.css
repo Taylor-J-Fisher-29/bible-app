@@ -37,3 +37,13 @@ h3 {
 .footnote {
 	@apply text-gray-800 dark:text-rose-200 text-sm px-1;
 }
+
+@layer utilities {
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+	.no-scrollbar {
+		-ms-overflow-style: none;  
+		scrollbar-width: none; 
+  }
+}
