@@ -9,7 +9,7 @@
 </head>
 <body class="flex bg-violet-300 text-gray-700 dark:bg-cyan-950 dark:text-rose-200 justify-center">
     <nav class="fixed min-w-full top-0 left-0 right-0 z-50 dark:border-cyan-900 border-gray-700 border-3
-    flex justify-between items-center dark:text-cyan-200 bg-violet-300 dark:bg-cyan-950">
+    flex justify-between items-center dark:text-rose-100 bg-violet-300 dark:bg-cyan-950">
     <div class="p-2">
 <input class="dark:bg-cyan-800 bg-violet-400 border-2 dark:border-rose-200 border-gray-700 px-2 py-1" 
 type="text" id="search" name="search" placeholder="John 3:16-21" />
@@ -21,11 +21,11 @@ type="text" id="search" name="search" placeholder="John 3:16-21" />
         </button>
     </div>
     </nav>
-    <main class="container mx-auto max-w-8/10 pt-16 
+    <main class="container pt-16 px-4
           relative min-h-screen overflow-y-scroll max-h-screen no-scrollbar">
       <h1 class="text-3xl font-bold underline">
         Hello my Beautiful Class!
-      </h1>
+      </h1> 
       <div class="flex items-center gap-x-3 pb-1">
         <label for="headings" class="relative inline-block w-11 h-6 cursor-pointer">
           <input type="checkbox" id="headings" class="peer sr-only" checked/>
@@ -53,8 +53,10 @@ type="text" id="search" name="search" placeholder="John 3:16-21" />
       <div id="verse"></div>
     </main>
     <sidebar class="pt-16 px-4 border-l-2 dark:border-cyan-600
-     dark:bg-cyan-900 bg-violet-400 min-h-screen overflow-y-scroll max-h-screen no-scrollbar max-w-xs min-w-xs">
-      This is my Sidebar.
+     dark:bg-cyan-900 bg-violet-400 min-h-screen overflow-y-scroll 
+     max-h-screen no-scrollbar max-w-xs min-w-xs">
+      Search History<br>
+      <div id="history"></div>
     </sidebar>
 
 <script src="/assets/js/main.js"></script>
