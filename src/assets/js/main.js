@@ -54,10 +54,14 @@ function createHistory() {
   searchHistory.forEach(addHistoryItem);
 }
 
-
 function useHistory(verse) {
   document.getElementById("search").value = verse;
   verseLookup();
+}
+
+function clearSearchHistory() {
+  document.getElementById('history').innerHTML = '';
+  searchHistory.clear();
 }
 
   async function verseLookup() {
@@ -71,6 +75,7 @@ function useHistory(verse) {
       .then(data => {
         document.getElementById("verse").innerHTML = data.passages.join("");
         searchHistory.add(data.query);
+        createHistory();
   })
       .then (createHistory());
     window.scrollTo(0, 0);
@@ -86,3 +91,41 @@ function useHistory(verse) {
   ["headings", "extras", "numbers"].forEach(function(id) {
     document.getElementById(id).addEventListener('change', verseLookup);
     });
+
+    function hasClass(ele, cls) {
+      return !!ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+  }
+  
+  function addClass(ele, cls) {
+      if (!hasClass(ele, cls)) ele.className += " " + cls;
+  }
+  
+  function removeClass(ele, cls) {
+      if (hasClass(ele, cls)) {
+          var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+          ele.className = ele.className.replace(reg, ' ');
+      }
+  }
+  
+  //Add event from js the keep the marup clean
+  function init() {
+      document.getElementById("open-menu").addEventListener("click", toggleMenu);
+      document.getElementById("body-overlay").addEventListener("click", toggleMenu);
+  }
+  
+  //The actual fuction
+  function toggleMenu() {
+      var ele = document.getElementsByTagName('body')[0];
+      if (!hasClass(ele, "menu-open")) {
+          addClass(ele, "menu-open");
+      } else {
+          removeClass(ele, "menu-open");
+      }
+  }
+  
+  //Prevent the function to run before the document is loaded
+  document.addEventListener('readystatechange', function() {
+      if (document.readyState === "complete") {
+          init();
+      }
+  });
