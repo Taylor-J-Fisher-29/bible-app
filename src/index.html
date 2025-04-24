@@ -8,7 +8,7 @@
   <title>Bible App</title>
 </head>
 <body class="flex bg-violet-300 text-gray-700 dark:bg-cyan-950 dark:text-rose-200 justify-center">
-    <nav class="fixed min-w-full top-0 left-0 right-0 z-50 dark:border-cyan-900 border-gray-700 border-3
+    <nav class="fixed min-w-full top-0 left-0 right-0 z-5 dark:border-cyan-900 border-gray-700 border-3
     flex justify-between items-center dark:text-rose-100 bg-violet-300 dark:bg-cyan-950">
     <div class="p-2">
 <input class="dark:bg-cyan-800 bg-violet-400 border-2 dark:border-rose-200 border-gray-700 px-2 py-1" 
@@ -19,13 +19,40 @@ type="text" id="search" name="search" placeholder="John 3:16-21" />
             <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
             <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
         </button>
+      <button id="open-menu">
+        <svg class="w-6 h-6" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 18L20 18" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4 12L20 12" stroke-width="2" stroke-linecap="round"/>
+          <path d="M4 6L20 6" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+      </button>
     </div>
     </nav>
+    <div id="body-overlay"></div>
     <main class="container pt-16 px-4
           relative min-h-screen overflow-y-scroll max-h-screen no-scrollbar">
       <h1 class="text-3xl font-bold underline">
         Hello my Beautiful Class!
       </h1> 
+
+
+
+
+
+
+
+      <nav class="real-menu" role="navigation">            
+          <ul>
+              <li><a href="#">HOME HOME ON THE RANGE</a></li>
+              <li><a href="#">WHERE THE DEAR AND THE ANTELOPE PLAY</a></li>
+              <li><a href="#">Item 3</a></li>
+          </ul>
+      </nav>
+      
+
+
+
+
       <div class="flex items-center gap-x-3 pb-1">
         <label for="headings" class="relative inline-block w-11 h-6 cursor-pointer">
           <input type="checkbox" id="headings" class="peer sr-only" checked/>
