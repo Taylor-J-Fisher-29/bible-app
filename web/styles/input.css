@@ -38,6 +38,14 @@ h3 {
 	@apply text-gray-800 dark:text-rose-200 text-sm px-1;
 }
 
+.highlighted {
+	@apply bg-emerald-500 dark:bg-rose-800 text-violet-950 dark:text-rose-200;
+}
+
+.verse a {
+	scroll-margin: 53px;
+}
+
 @layer utilities {
 	.no-scrollbar::-webkit-scrollbar {
 		display: none;

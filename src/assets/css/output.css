@@ -8,6 +8,7 @@
     monospace;
     --color-red-600: oklch(0.577 0.245 27.325);
     --color-red-800: oklch(0.444 0.177 26.899);
+    --color-emerald-500: oklch(0.696 0.17 162.48);
     --color-cyan-100: oklch(0.956 0.045 203.388);
     --color-cyan-500: oklch(0.715 0.143 215.221);
     --color-cyan-600: oklch(0.609 0.126 221.723);
@@ -20,8 +21,10 @@
     --color-violet-300: oklch(0.811 0.111 293.571);
     --color-violet-400: oklch(0.702 0.183 293.541);
     --color-violet-500: oklch(0.606 0.25 292.717);
+    --color-violet-950: oklch(0.283 0.141 291.089);
     --color-rose-100: oklch(0.941 0.03 12.58);
     --color-rose-200: oklch(0.892 0.058 10.001);
+    --color-rose-800: oklch(0.455 0.188 13.697);
     --color-gray-700: oklch(0.373 0.034 259.733);
     --color-gray-800: oklch(0.278 0.033 256.848);
     --spacing: 0.25rem;
@@ -532,6 +535,19 @@ h3 {
   &:where(.dark, .dark *) {
     color: var(--color-rose-200);
   }
+}
+.highlighted {
+  background-color: var(--color-emerald-500);
+  color: var(--color-violet-950);
+  &:where(.dark, .dark *) {
+    background-color: var(--color-rose-800);
+  }
+  &:where(.dark, .dark *) {
+    color: var(--color-rose-200);
+  }
+}
+.verse a {
+  scroll-margin: 53px;
 }
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
