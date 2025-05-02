@@ -374,6 +374,9 @@
   .text-gray-700 {
     color: var(--color-gray-700);
   }
+  .text-violet-500 {
+    color: var(--color-violet-500);
+  }
   .underline {
     text-decoration-line: underline;
   }
@@ -458,6 +461,11 @@
   .dark\:bg-cyan-950 {
     &:where(.dark, .dark *) {
       background-color: var(--color-cyan-950);
+    }
+  }
+  .dark\:text-cyan-500 {
+    &:where(.dark, .dark *) {
+      color: var(--color-cyan-500);
     }
   }
   .dark\:text-rose-100 {
