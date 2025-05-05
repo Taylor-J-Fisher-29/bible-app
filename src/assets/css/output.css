@@ -6,9 +6,15 @@
     'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
+    --color-red-500: oklch(0.637 0.237 25.331);
     --color-red-600: oklch(0.577 0.245 27.325);
     --color-red-800: oklch(0.444 0.177 26.899);
+    --color-orange-500: oklch(0.705 0.213 47.604);
+    --color-yellow-500: oklch(0.795 0.184 86.047);
+    --color-lime-500: oklch(0.768 0.233 130.85);
+    --color-green-500: oklch(0.723 0.219 149.579);
     --color-emerald-500: oklch(0.696 0.17 162.48);
+    --color-teal-500: oklch(0.704 0.14 182.503);
     --color-cyan-100: oklch(0.956 0.045 203.388);
     --color-cyan-500: oklch(0.715 0.143 215.221);
     --color-cyan-600: oklch(0.609 0.126 221.723);
@@ -16,17 +22,25 @@
     --color-cyan-800: oklch(0.45 0.085 224.283);
     --color-cyan-900: oklch(0.398 0.07 227.392);
     --color-cyan-950: oklch(0.302 0.056 229.695);
+    --color-sky-500: oklch(0.685 0.169 237.323);
+    --color-blue-500: oklch(0.623 0.214 259.815);
+    --color-indigo-500: oklch(0.585 0.233 277.117);
     --color-violet-100: oklch(0.943 0.029 294.588);
     --color-violet-200: oklch(0.894 0.057 293.283);
     --color-violet-300: oklch(0.811 0.111 293.571);
     --color-violet-400: oklch(0.702 0.183 293.541);
     --color-violet-500: oklch(0.606 0.25 292.717);
     --color-violet-950: oklch(0.283 0.141 291.089);
+    --color-fuchsia-500: oklch(0.667 0.295 322.15);
+    --color-pink-500: oklch(0.656 0.241 354.308);
     --color-rose-100: oklch(0.941 0.03 12.58);
     --color-rose-200: oklch(0.892 0.058 10.001);
+    --color-rose-500: oklch(0.645 0.246 16.439);
     --color-rose-800: oklch(0.455 0.188 13.697);
     --color-gray-700: oklch(0.373 0.034 259.733);
     --color-gray-800: oklch(0.278 0.033 256.848);
+    --color-black: #000;
+    --color-white: #fff;
     --spacing: 0.25rem;
     --container-xs: 20rem;
     --text-sm: 0.875rem;
@@ -38,6 +52,8 @@
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
     --font-weight-bold: 700;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.375rem;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -256,6 +272,9 @@
   .inline-block {
     display: inline-block;
   }
+  .aspect-1\/1 {
+    aspect-ratio: 1/1;
+  }
   .size-5 {
     width: calc(var(--spacing) * 5);
     height: calc(var(--spacing) * 5);
@@ -315,6 +334,9 @@
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
+  .rounded-sm {
+    border-radius: var(--radius-sm);
+  }
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
@@ -330,6 +352,45 @@
   .border-gray-700 {
     border-color: var(--color-gray-700);
   }
+  .bg-blue-500 {
+    background-color: var(--color-blue-500);
+  }
+  .bg-cyan-500 {
+    background-color: var(--color-cyan-500);
+  }
+  .bg-emerald-500 {
+    background-color: var(--color-emerald-500);
+  }
+  .bg-fuchsia-500 {
+    background-color: var(--color-fuchsia-500);
+  }
+  .bg-green-500 {
+    background-color: var(--color-green-500);
+  }
+  .bg-indigo-500 {
+    background-color: var(--color-indigo-500);
+  }
+  .bg-lime-500 {
+    background-color: var(--color-lime-500);
+  }
+  .bg-orange-500 {
+    background-color: var(--color-orange-500);
+  }
+  .bg-pink-500 {
+    background-color: var(--color-pink-500);
+  }
+  .bg-red-500 {
+    background-color: var(--color-red-500);
+  }
+  .bg-rose-500 {
+    background-color: var(--color-rose-500);
+  }
+  .bg-sky-500 {
+    background-color: var(--color-sky-500);
+  }
+  .bg-teal-500 {
+    background-color: var(--color-teal-500);
+  }
   .bg-violet-100 {
     background-color: var(--color-violet-100);
   }
@@ -341,6 +402,12 @@
   }
   .bg-violet-400 {
     background-color: var(--color-violet-400);
+  }
+  .bg-violet-500 {
+    background-color: var(--color-violet-500);
+  }
+  .bg-yellow-500 {
+    background-color: var(--color-yellow-500);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -384,6 +451,16 @@
     --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+  .-outline-offset-1 {
+    outline-offset: calc(1px * -1);
+  }
+  .outline-black\/10 {
+    outline-color: color-mix(in oklab, var(--color-black) 10%, transparent);
+  }
   .transition-colors {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -421,6 +498,11 @@
   .peer-disabled\:opacity-50 {
     &:is(:where(.peer):disabled ~ *) {
       opacity: 50%;
+    }
+  }
+  .sm\:rounded-md {
+    @media (width >= 40rem) {
+      border-radius: var(--radius-md);
     }
   }
   .dark\:border-cyan-600 {
@@ -476,6 +558,11 @@
   .dark\:text-rose-200 {
     &:where(.dark, .dark *) {
       color: var(--color-rose-200);
+    }
+  }
+  .dark\:outline-white\/10 {
+    &:where(.dark, .dark *) {
+      outline-color: color-mix(in oklab, var(--color-white) 10%, transparent);
     }
   }
   .dark\:peer-checked\:bg-cyan-100 {
@@ -674,6 +761,11 @@ body.menu-open .real-menu {
   syntax: "*";
   inherits: false;
   initial-value: 0 0 #0000;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-duration {
   syntax: "*";
