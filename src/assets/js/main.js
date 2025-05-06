@@ -151,7 +151,8 @@ function clearSearchHistory() {
 
 
 
-function HighlightButtonClicked() {
+function HighlightButtonClicked(me) {
+    console.log(me.id);
     if (allowHighlighting) {
         allowHighlighting = false;
     } else {
