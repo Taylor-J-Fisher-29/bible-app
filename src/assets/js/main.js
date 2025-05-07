@@ -1,5 +1,25 @@
   var allowHighlighting = false;
   var buttonClicked = "";
+  var highlightColor = "";
+  const highlightColors = [
+    "bg-red-500",
+    "bg-orange-500",
+    "bg-yellow-500",
+    "bg-lime-500",
+    "bg-green-500",
+    "bg-emerald-500",
+    "bg-teal-500",
+    "bg-blue-500",
+    "bg-rose-500",
+    "bg-violet-500",
+    "bg-fuchsia-500",
+    "bg-pink-500",
+    "bg-indigo-500",
+    "bg-cyan-500",
+    "bg-sky-500",
+    "bg-blue-500"
+
+  ]
   var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
   var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
   
@@ -130,33 +150,28 @@ function clearSearchHistory() {
   
           // Add click-to-highlight functionality
           wrapper.addEventListener("click", () => {
+            console.log(allowHighlighting);
               if (allowHighlighting) {
-
-              wrapper.classList.toggle("highlighted");
-              const id = wrapper.getAttribute("data-verse");
-              if (wrapper.classList.contains("highlighted")) {
-                  console.log(`Highlighted: ${id}`);
-                  // You can send this ID to your backend
-              } else {
-                  console.log(`Unhighlighted: ${id}`);
-                  // Remove it from your backend
-              }
-
-
+                if (hasClass(wrapper, highlightColor)) {
+                  removeClass(wrapper, highlightColor);
+                } else {
+                     highlightColors.forEach((color) => {
+                    wrapper.classList.remove(color);
+                });
+                addClass(wrapper, highlightColor);
               }
           });
       });
   }
-
-
-
-
 function HighlightButtonClicked(me) {
     console.log(me.id);
-    if (allowHighlighting) {
+    if (allowHighlighting && me.id === buttonClicked) {
         allowHighlighting = false;
     } else {
+        buttonClicked = me.id;
         allowHighlighting = true;
+        highlightColor = "bg-" + me.id.split("-")[1] + "-500";
+        console.log(highlightColor);
     }
 }
 
