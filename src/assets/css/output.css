@@ -352,6 +352,9 @@
   .border-gray-700 {
     border-color: var(--color-gray-700);
   }
+  .border-transparent {
+    border-color: transparent;
+  }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
   }

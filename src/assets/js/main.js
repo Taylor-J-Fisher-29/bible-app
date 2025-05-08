@@ -154,26 +154,38 @@ function clearSearchHistory() {
               if (allowHighlighting) {
                 if (hasClass(wrapper, highlightColor)) {
                   removeClass(wrapper, highlightColor);
+                  wrapper.children.forEach(child => {
+                    if(hasClass)
+                  })
                 } else {
-                     highlightColors.forEach((color) => {
-                    wrapper.classList.remove(color);
+                     highlightColors.forEach(color => {
+                    removeClass(wrapper, color);
                 });
                 addClass(wrapper, highlightColor);
               }
-          });
+          }
+        });
       });
   }
 function HighlightButtonClicked(me) {
-    console.log(me.id);
+   // console.log(me.id);
+    var buttons = document.querySelectorAll(".highlight-button");
+    buttons.forEach(button => {
+      removeClass(button, "border-rose-200");
+      addClass(button, "border-transparent");
+    });
     if (allowHighlighting && me.id === buttonClicked) {
         allowHighlighting = false;
     } else {
+      removeClass(me, "border-transparent");
+      addClass(me, "border-rose-200");
         buttonClicked = me.id;
         allowHighlighting = true;
         highlightColor = "bg-" + me.id.split("-")[1] + "-500";
-        console.log(highlightColor);
+        //console.log(highlightColor);
     }
 }
+
 
 
 
