@@ -352,6 +352,9 @@
   .border-gray-700 {
     border-color: var(--color-gray-700);
   }
+  .border-rose-200 {
+    border-color: var(--color-rose-200);
+  }
   .border-transparent {
     border-color: transparent;
   }

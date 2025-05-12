@@ -150,23 +150,40 @@ function clearSearchHistory() {
   
           // Add click-to-highlight functionality
           wrapper.addEventListener("click", () => {
-            console.log(allowHighlighting);
-              if (allowHighlighting) {
-                if (hasClass(wrapper, highlightColor)) {
-                  removeClass(wrapper, highlightColor);
-                  wrapper.children.forEach(child => {
-                    if(hasClass)
-                  })
-                } else {
-                     highlightColors.forEach(color => {
-                    removeClass(wrapper, color);
-                });
-                addClass(wrapper, highlightColor);
-              }
-          }
+         highlightWrapper(wrapper)
         });
       });
   }
+
+
+function highlightWrapper(wrapper) {
+  const children = wrapper.children;
+    if (allowHighlighting) {
+      if (hasClass(wrapper, highlightColor)) {
+        removeClass(wrapper, highlightColor);
+       for (child of children) {
+          if(hasClass(child, "woc-highlighted")) {
+          removeClass(child, "woc-highlighted");
+          addClass(child, "woc");
+       }
+      }
+      } else {
+           highlightColors.forEach(color => {
+          removeClass(wrapper, color);
+      });
+      addClass(wrapper, highlightColor);
+      for (child of children) {
+          if(hasClass(child, "woc")) {
+          removeClass(child, "woc");
+          addClass(child, "woc-highlighted");
+         }
+       }
+      }
+    }
+ }
+
+
+
 function HighlightButtonClicked(me) {
    // console.log(me.id);
     var buttons = document.querySelectorAll(".highlight-button");
