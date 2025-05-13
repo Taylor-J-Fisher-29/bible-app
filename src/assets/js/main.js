@@ -20,6 +20,13 @@
     "bg-blue-500"
 
   ]
+
+  var highlightedVerses = {
+     "v43003016": "bg-pink-500",
+     "v43003019": "bg-red-500", 
+     "v43003021": "bg-yellow-500"
+};
+
   var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
   var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
   
@@ -127,6 +134,11 @@ function clearSearchHistory() {
           if (verseId) {
               wrapper.setAttribute("data-verse", verseId);
           }
+
+          //check if verse is in the highlightedVerses array
+         if (highlightedVerses [verseId]) {
+          console.log("highlighting verses", [verseId]);
+         }
   
           let current = anchor;
           const parent = anchor.parentNode;
@@ -188,14 +200,16 @@ function HighlightButtonClicked(me) {
    // console.log(me.id);
     var buttons = document.querySelectorAll(".highlight-button");
     buttons.forEach(button => {
-      removeClass(button, "border-rose-200");
+      removeClass(button, "border-violet-500");
+      removeClass(button, "dark:border-rose-200");
       addClass(button, "border-transparent");
     });
     if (allowHighlighting && me.id === buttonClicked) {
         allowHighlighting = false;
     } else {
       removeClass(me, "border-transparent");
-      addClass(me, "border-rose-200");
+      addClass(me, "dark:border-rose-200");
+      addClass(me, "border-violet-500")
         buttonClicked = me.id;
         allowHighlighting = true;
         highlightColor = "bg-" + me.id.split("-")[1] + "-500";
