@@ -352,11 +352,11 @@
   .border-gray-700 {
     border-color: var(--color-gray-700);
   }
-  .border-rose-200 {
-    border-color: var(--color-rose-200);
-  }
   .border-transparent {
     border-color: transparent;
+  }
+  .border-violet-500 {
+    border-color: var(--color-violet-500);
   }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
