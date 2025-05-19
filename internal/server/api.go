@@ -33,8 +33,8 @@ type SearchResponse struct {
 	Page    int `json:"page"`
 	Total   int `json:"total_results"`
 	Results []struct {
-		Reference []string `json:"reference"`
-		Content   string   `json:"content"`
+		Reference string `json:"reference"`
+		Content   string `json:"content"`
 	} `json:"results"`
 }
 
@@ -50,6 +50,8 @@ func SearchResponseHandler(w http.ResponseWriter, r *http.Request) {
 	api_key := os.Getenv("API_KEY")
 	baseURL := "https://api.esv.org/v3/passage/search/"
 	urlWithParams := baseURL + "?" + params.Encode()
+
+	// ----------------This is the same as The APIRequestHandler function ------------
 
 	//log.Println(urlWithParams)
 	req, err := http.NewRequest("GET", urlWithParams, nil)

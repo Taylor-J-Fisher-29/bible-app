@@ -100,6 +100,8 @@ function clearSearchHistory() {
     var headings = document.getElementById("headings").checked;
     var extras = document.getElementById("extras").checked;
     var numbers = document.getElementById("numbers").checked;
+
+    if (verse.match(/(\d+)/)) {
     var url = "/api?verse=" + verse + "&headings=" + headings + "&extras=" + extras + "&numbers=" + numbers;
     fetch(url)
       .then(response => response.json())
@@ -108,8 +110,23 @@ function clearSearchHistory() {
         searchHistory.add(data.query);
         createHistory();
         wrapText();
-  })
-      .then (createHistory());
+  });
+} else {
+  var url = "search?search=" + verse;
+  fetch(url)
+   .then(response => response.json())
+    .then(data => {
+      let html = '<ul>';
+      data.results.forEach(obj => {
+        html += "<li><button class=\"cursor-pointer underline\" onclick=\"useHistory('" + obj.reference + "')\">" + obj.reference + "</button>"
+        html += ` -- ${obj.content}</li>`;
+      });
+      html += '</ul>';
+      document.getElementById("verse").innerHTML = html;
+      searchHistory.add(verse);
+      createHistory();
+});
+}
     window.scrollTo(0, 0);
   }
 
