@@ -1,4 +1,5 @@
-/*! tailwindcss v4.0.15 | MIT License | https://tailwindcss.com */
+/*! tailwindcss v4.1.7 | MIT License | https://tailwindcss.com */
+@layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
   :root, :host {
@@ -6,39 +7,39 @@
     'Noto Color Emoji';
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
-    --color-red-500: oklch(0.637 0.237 25.331);
-    --color-red-600: oklch(0.577 0.245 27.325);
-    --color-red-800: oklch(0.444 0.177 26.899);
-    --color-orange-500: oklch(0.705 0.213 47.604);
-    --color-yellow-500: oklch(0.795 0.184 86.047);
-    --color-lime-500: oklch(0.768 0.233 130.85);
-    --color-green-500: oklch(0.723 0.219 149.579);
-    --color-emerald-500: oklch(0.696 0.17 162.48);
-    --color-teal-500: oklch(0.704 0.14 182.503);
-    --color-cyan-100: oklch(0.956 0.045 203.388);
-    --color-cyan-500: oklch(0.715 0.143 215.221);
-    --color-cyan-600: oklch(0.609 0.126 221.723);
-    --color-cyan-700: oklch(0.52 0.105 223.128);
-    --color-cyan-800: oklch(0.45 0.085 224.283);
-    --color-cyan-900: oklch(0.398 0.07 227.392);
-    --color-cyan-950: oklch(0.302 0.056 229.695);
-    --color-sky-500: oklch(0.685 0.169 237.323);
-    --color-blue-500: oklch(0.623 0.214 259.815);
-    --color-indigo-500: oklch(0.585 0.233 277.117);
-    --color-violet-100: oklch(0.943 0.029 294.588);
-    --color-violet-200: oklch(0.894 0.057 293.283);
-    --color-violet-300: oklch(0.811 0.111 293.571);
-    --color-violet-400: oklch(0.702 0.183 293.541);
-    --color-violet-500: oklch(0.606 0.25 292.717);
-    --color-violet-950: oklch(0.283 0.141 291.089);
-    --color-fuchsia-500: oklch(0.667 0.295 322.15);
-    --color-pink-500: oklch(0.656 0.241 354.308);
-    --color-rose-100: oklch(0.941 0.03 12.58);
-    --color-rose-200: oklch(0.892 0.058 10.001);
-    --color-rose-500: oklch(0.645 0.246 16.439);
-    --color-rose-800: oklch(0.455 0.188 13.697);
-    --color-gray-700: oklch(0.373 0.034 259.733);
-    --color-gray-800: oklch(0.278 0.033 256.848);
+    --color-red-500: oklch(63.7% 0.237 25.331);
+    --color-red-600: oklch(57.7% 0.245 27.325);
+    --color-red-800: oklch(44.4% 0.177 26.899);
+    --color-orange-500: oklch(70.5% 0.213 47.604);
+    --color-yellow-500: oklch(79.5% 0.184 86.047);
+    --color-lime-500: oklch(76.8% 0.233 130.85);
+    --color-green-500: oklch(72.3% 0.219 149.579);
+    --color-emerald-500: oklch(69.6% 0.17 162.48);
+    --color-teal-500: oklch(70.4% 0.14 182.503);
+    --color-cyan-100: oklch(95.6% 0.045 203.388);
+    --color-cyan-500: oklch(71.5% 0.143 215.221);
+    --color-cyan-600: oklch(60.9% 0.126 221.723);
+    --color-cyan-700: oklch(52% 0.105 223.128);
+    --color-cyan-800: oklch(45% 0.085 224.283);
+    --color-cyan-900: oklch(39.8% 0.07 227.392);
+    --color-cyan-950: oklch(30.2% 0.056 229.695);
+    --color-sky-500: oklch(68.5% 0.169 237.323);
+    --color-blue-500: oklch(62.3% 0.214 259.815);
+    --color-indigo-500: oklch(58.5% 0.233 277.117);
+    --color-violet-100: oklch(94.3% 0.029 294.588);
+    --color-violet-200: oklch(89.4% 0.057 293.283);
+    --color-violet-300: oklch(81.1% 0.111 293.571);
+    --color-violet-400: oklch(70.2% 0.183 293.541);
+    --color-violet-500: oklch(60.6% 0.25 292.717);
+    --color-violet-950: oklch(28.3% 0.141 291.089);
+    --color-fuchsia-500: oklch(66.7% 0.295 322.15);
+    --color-pink-500: oklch(65.6% 0.241 354.308);
+    --color-rose-100: oklch(94.1% 0.03 12.58);
+    --color-rose-200: oklch(89.2% 0.058 10.001);
+    --color-rose-500: oklch(64.5% 0.246 16.439);
+    --color-rose-800: oklch(45.5% 0.188 13.697);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -168,7 +169,10 @@
   }
   @supports (not (-webkit-appearance: -apple-pay-button))  or (contain-intrinsic-size: 1px) {
     ::placeholder {
-      color: color-mix(in oklab, currentColor 50%, transparent);
+      color: currentcolor;
+      @supports (color: color-mix(in lab, red, red)) {
+        color: color-mix(in oklab, currentcolor 50%, transparent);
+      }
     }
   }
   textarea {
@@ -465,7 +469,10 @@
     outline-offset: calc(1px * -1);
   }
   .outline-black\/10 {
-    outline-color: color-mix(in oklab, var(--color-black) 10%, transparent);
+    outline-color: color-mix(in srgb, #000 10%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      outline-color: color-mix(in oklab, var(--color-black) 10%, transparent);
+    }
   }
   .transition-colors {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
@@ -568,7 +575,10 @@
   }
   .dark\:outline-white\/10 {
     &:where(.dark, .dark *) {
-      outline-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+      outline-color: color-mix(in srgb, #fff 10%, transparent);
+      @supports (color: color-mix(in lab, red, red)) {
+        outline-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+      }
     }
   }
   .dark\:peer-checked\:bg-cyan-100 {
@@ -722,6 +732,11 @@ body.menu-open .real-menu {
   syntax: "*";
   inherits: false;
 }
+@property --tw-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
 @property --tw-inset-shadow {
   syntax: "*";
   inherits: false;
@@ -730,6 +745,11 @@ body.menu-open .real-menu {
 @property --tw-inset-shadow-color {
   syntax: "*";
   inherits: false;
+}
+@property --tw-inset-shadow-alpha {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
 }
 @property --tw-ring-color {
   syntax: "*";
@@ -780,4 +800,32 @@ body.menu-open .real-menu {
 @property --tw-ease {
   syntax: "*";
   inherits: false;
+}
+@layer properties {
+  @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
+    *, ::before, ::after, ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-translate-z: 0;
+      --tw-border-style: solid;
+      --tw-font-weight: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-shadow-alpha: 100%;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-inset-shadow-color: initial;
+      --tw-inset-shadow-alpha: 100%;
+      --tw-ring-color: initial;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-color: initial;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-inset: initial;
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-color: #fff;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
+      --tw-duration: initial;
+      --tw-ease: initial;
+    }
+  }
 }
