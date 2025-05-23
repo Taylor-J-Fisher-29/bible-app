@@ -47,7 +47,7 @@ type HighlightedVersesResponse struct {
 	Verses []Verse `json:"verses"`
 }
 
-func HIghlightedVersesHandler(w http.ResponseWriter, r *http.Request) {
+func HighlightedVersesHandler(w http.ResponseWriter, r *http.Request) {
 
 	result := HighlightedVersesResponse{
 		Verses: []Verse{Verse{Reference: "v43003016", Color: "bg-pink-500"},
