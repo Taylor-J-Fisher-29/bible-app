@@ -178,59 +178,45 @@ async function getDataInOrder(verses) {
 
 
     function wrapText() {
-      const anchors = document.querySelectorAll("a.va");
-      anchors.forEach((anchor) => {
-          const wrapper = document.createElement("span");
-          wrapper.classList.add("verse");
-          const verseId = anchor.getAttribute("rel"); // e.g., "v40001007"
-          if (verseId) {
-              wrapper.setAttribute("data-verse", verseId);
+      document.querySelectorAll("span.verse").forEach((span) => {
+          const verseID = span.getAttribute("data-verse");
+          span.addEventListener("click", (e) => {
+              // Read the verse ID from the data-verse attribute
+              // Assume highlightColor is set elsewhere in your script
+              highlightVerseByID(verseID, highlightColor);
+          });
+          // Check if the verse is in the highlightedVerses array
+          if (highlightedVerses[verseID]) {
+              //console.log("Highlighting verse:", verseID);
+              if (allowHighlighting) {
+                  highlightWrapper(span, highlightedVerses[verseID]);
+              } else {
+                  allowHighlighting = true;
+                  highlightWrapper(span, highlightedVerses[verseID]);
+                  allowHighlighting = false;
+              }
           }
-  
-          let current = anchor;
-          const parent = anchor.parentNode;
-  
-          // Add the anchor itself to the wrapper
-          wrapper.appendChild(current.cloneNode(true));
-          let next = current.nextSibling;
-  
-          // Wrap content until the next anchor
-          const values = ["verse-num", "line", "begin-line-group", "end-line-group"]
-          while (next && !(next.nodeType === 1 &&
-              (next.matches("a.va")
-                  || values.some(v => next.classList.contains(v))
-                  || next.tagName.toLowerCase() === "p"))) {
-              const sibling = next.nextSibling;
-              wrapper.appendChild(next);
-              next = sibling;
-          }
-          // Insert the wrapper before the anchor, then remove the original
-          parent.insertBefore(wrapper, anchor);
-          anchor.remove();
-  
-          // Add click-to-highlight functionality
-          wrapper.addEventListener("click", () => {
-            highlightWrapper(wrapper, highlightColor);
-            var verseId = wrapper.getAttribute("data-verse");
-            
-            if (highlightedVerses[verseId] && highlightedVerses[verseId] === highlightColor) {
-              delete highlightedVerses[verseId];
-            } else {
-              highlightedVerses[verseId] = highlightColor;
-            }
-        });
-
-          //check if verse is in the highlightedVerses array
-          if (highlightedVerses[verseId]) {
-            console.log("highlighting verse:", [verseId]);
-            allowHighlighting = true;
-            highlightWrapper(wrapper, highlightedVerses[verseId]);
-            allowHighlighting = false;
-
-           }
       });
   }
-
+  
+  
+  /**
+   * Finds all <span class="verse" data-verse="..."> elements matching the given verseID
+   * and applies highlightWrapper to each.
+   *
+   * @param {string} verseID        The verse ID to look for (e.g. "v45003010").
+   * @param {string} highlightColor The CSS class name that highlightWrapper should apply.
+   */
+  function highlightVerseByID(verseID, highlightColor) {
+      // Construct a selector for all <span class="verse" data-verse="verseID">
+      const selector = `span.verse[data-verse="${verseID}"]`;
+      const wrappers = document.querySelectorAll(selector);
+  
+      wrappers.forEach((wrapper) => {
+          highlightWrapper(wrapper, highlightColor);
+      });
+  
+  }
 
 function highlightWrapper(wrapper, highlightColor) {
   const children = wrapper.children;
@@ -257,7 +243,6 @@ function highlightWrapper(wrapper, highlightColor) {
       }
     }
  }
-
 
 
 function HighlightButtonClicked(me) {
