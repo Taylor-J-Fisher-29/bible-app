@@ -165,13 +165,13 @@ func ApiRequestHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Can not unmarshal JSON")
 	}
 	text := strings.Join(result.Passages, "")
-	fmt.Println(text)
+	//fmt.Println(text)
 	wrapped, err := wrapVerses(text)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
 	}
-	fmt.Println(wrapped)
+	//fmt.Println(wrapped)
 	result.Passages = []string{wrapped}
 	//w.Header().Set("Content-Type", "text/html")
 	w.Header().Set("Content-Type", "application/json")

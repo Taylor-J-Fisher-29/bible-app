@@ -1,4 +1,4 @@
-module mr-stubblefield/bible-app
+module Taylor-J-Fisher-29/bible-app
 
 go 1.24.1
 
